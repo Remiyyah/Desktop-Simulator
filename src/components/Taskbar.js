@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import WifiIcon from '@mui/icons-material/Wifi';
 
 const TaskbarContainer = styled.div`
     height: 40px;
@@ -74,7 +75,8 @@ function Taskbar({ openWindows, onStartButtonClick, onWindowClick }) {
                 ))}
             </OpenWindows>
             <SystemTray>
-                {/* Add system tray icons here */}
+                {/* Add system tray icons here */
+                < WifiIcon/>}
                 <Clock>{time.toLocaleTimeString()}</Clock>
             </SystemTray>
         </TaskbarContainer>

@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import Draggable from 'react-draggable';
 
 const IconContainer = styled.div`
     width: 60px;
     text-align: center;
-    margin: 10px;
     cursor: pointer;
+    position: absolute;  /* Adjusted position to absolute */
 `;
 
 const IconImage = styled.div`
@@ -18,12 +19,14 @@ const IconTitle = styled.div`
     color: white;
 `;
 
-function DesktopIcon({ icon, title, onDoubleClick }) {
+function DesktopIcon({ icon, title, onDoubleClick, position }) {
     return (
-        <IconContainer onDoubleClick={onDoubleClick}>
-            <IconImage>{icon}</IconImage>
-            <IconTitle>{title}</IconTitle>
-        </IconContainer>
+        <Draggable bounds="parent">
+            <IconContainer onDoubleClick={onDoubleClick} style={{ top: position.top, left: position.left }}>
+                <IconImage>{icon}</IconImage>
+                <IconTitle>{title}</IconTitle>
+            </IconContainer>
+        </Draggable>
     );
 }
 

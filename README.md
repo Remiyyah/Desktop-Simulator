@@ -2,7 +2,7 @@
 
 # React Desktop Simulator
 
-This project is a simple desktop environment simulation built with React and styled-components. It includes a taskbar, draggable windows, and desktop icons.
+This project is a desktop environment simulation built with React and styled-components. 
 
 ## Features
 
@@ -13,7 +13,9 @@ This project is a simple desktop environment simulation built with React and sty
 
 ## Components
 
-### Taskbar
+<details>
+<summary>Taskbar</summary> 
+
 
 - **File**: `components/Taskbar.js`
 - **Description**: The taskbar includes a start button, open windows list, and a system tray with a clock.
@@ -21,16 +23,21 @@ This project is a simple desktop environment simulation built with React and sty
   - `openWindows`: Array of open windows.
   - `onStartButtonClick`: Function to handle start button click.
   - `onWindowClick`: Function to handle window button click in the taskbar.
+</details>
 
-### Window
+<details>
+<summary>Window</summary> 
+
 
 - **File**: `components/Window.js`
 - **Description**: Represents a draggable window with a header and content area.
 - **Props**:
   - `title`: The title of the window.
   - `onClose`: Function to handle closing the window.
+</details>
 
-### DesktopIcon
+<details>
+<summary>DesktopIcon</summary> 
 
 - **File**: `components/DesktopIcon.js`
 - **Description**: Represents a clickable desktop icon.
@@ -38,15 +45,19 @@ This project is a simple desktop environment simulation built with React and sty
   - `icon`: The icon to display.
   - `title`: The title of the icon.
   - `onDoubleClick`: Function to handle double-click on the icon.
-
-### App
+</details>
+    
+<details>
+<summary> App</summary>
 
 - **File**: `App.js`
 - **Description**: Main component that includes the desktop area and the taskbar.
 - **State**:
   - `windows`: Array of open windows.
+</details>
 
-## State Management with useState
+<details>
+<summary>State Management with useState</summary>
 
 The `useState` hook is used to manage the state of various components in the application.
 
@@ -125,68 +136,18 @@ const [position, setPosition] = useState({ top: 50, left: 50 });
       setIsDragging(false);
   };
   ```
+</details>
 
-## Getting Started
 
-### Prerequisites
+---
+### UML Diagram
+![uml](https://github.com/user-attachments/assets/80435296-5c6b-48f9-86a2-0e284e62bf54)
 
-- Node.js (v14 or higher)
-- npm (v6 or higher) or yarn
+---
+### Preview Images
+![Image 8-1-24 at 1 54 PM](https://github.com/user-attachments/assets/1e5616a9-e858-47e2-a0ca-20a72cbfe49a)
 
-### Installation
+![Image 8-1-24 at 12 32 PM](https://github.com/user-attachments/assets/ce629b2b-5764-43d2-8d32-49f30ac8ea35)
 
-1. Clone the repository:
 
-```bash
-git clone https://github.com/yourusername/react-desktop-environment.git
-```
 
-2. Navigate to the project directory:
-
-```bash
-cd react-desktop-environment
-```
-
-3. Install dependencies:
-
-```bash
-npm install
-# or
-yarn install
-```
-
-### Running the App
-
-Start the development server:
-
-```bash
-npm start
-# or
-yarn start
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
-
-## Project Structure
-
-```
-src/
-├── components/
-│   ├── DesktopIcon.js
-│   ├── Taskbar.js
-│   └── Window.js
-├── App.js
-├── index.js
-└── styles/
-    └── GlobalStyles.js
-```
-
-## Customization
-
-### Adding Icons
-
-To add more desktop icons, update the `App.js` file with additional `DesktopIcon` components and their respective `onDoubleClick` handlers.
-
-### Styling
-
-All component styles are defined using `styled-components`. To customize the appearance, edit the styled components in each respective file.

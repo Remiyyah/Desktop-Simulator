@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import styled from 'styled-components';
 import Taskbar from './components/Taskbar';
 import DesktopIcon from './components/DesktopIcon';
 import Window from './components/Window';
 import './App.css';
+import LoginScreen from './components/LoginScreen';
+
+
 
 const AppContainer = styled.div`
     width: 100vw;
@@ -25,6 +28,7 @@ const DesktopArea = styled.div`
 
 function App() {
     const [windows, setWindows] = useState([]);
+    const [showLogin, setShowLogin] = useState(false);
 
     const openWindow = (title) => {
         setWindows([...windows, { id: Date.now(), title }]);
@@ -34,13 +38,24 @@ function App() {
         setWindows(windows.filter(win => win.id !== id));
     };
 
+    useEffect ( ()=>
+      {setShowLogin(true);
+      },[]);
+
     const handleStartButtonClick = () => {
-        alert('Start menu clicked');
-    };
+      setShowLogin(true); // Show the login modal
+  };
+
+  const handleLoginClose = () => {
+      setShowLogin(false); // Hide the login modal
+  };
+
 
     const handleWindowClick = (window) => {
         alert(`Window ${window.title} clicked`);
     };
+
+
 
     const iconPositions = [
       { top: '20px', left: '20px' },
@@ -142,7 +157,9 @@ function App() {
                 ))}
             </DesktopArea>
             <Taskbar openWindows={windows} onStartButtonClick={handleStartButtonClick} onWindowClick={handleWindowClick} />
+            <LoginScreen show={showLogin} onClose={handleLoginClose} /> {/* Add the LoginScreen component */}
         </AppContainer>
+       
     );
 }
 
